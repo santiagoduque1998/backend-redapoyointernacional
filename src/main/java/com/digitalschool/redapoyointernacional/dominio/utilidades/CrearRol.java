@@ -4,16 +4,17 @@ import com.digitalschool.redapoyointernacional.datos.modelos.entidades.EntidadRo
 import com.digitalschool.redapoyointernacional.datos.modelos.enumerados.NombreRol;
 import com.digitalschool.redapoyointernacional.dominio.servicios.ServicioRol;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CrearRol {
+public class CrearRol implements CommandLineRunner {
 
     @Autowired
     ServicioRol servicioRol;
 
-    @Autowired
-    public void comienzo(String...args){
+    @Override
+    public void run (String...args){
         EntidadRol rolViajero = new EntidadRol(null, NombreRol.VIAJERO);
         EntidadRol rolAnfitrion = new EntidadRol(null,NombreRol.ANFITRION);
 

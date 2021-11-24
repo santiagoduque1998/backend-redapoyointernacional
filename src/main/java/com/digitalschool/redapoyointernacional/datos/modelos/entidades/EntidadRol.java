@@ -14,7 +14,8 @@ import javax.persistence.*;
 @Builder
 public class EntidadRol {
     @Id
-    @Column(name="usuario_id")
+    @Column(name="rol_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name="nombre_rol")
