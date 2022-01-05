@@ -15,11 +15,17 @@ public class CrearRol implements CommandLineRunner {
 
     @Override
     public void run (String...args){
-        EntidadRol rolViajero = new EntidadRol(null, NombreRol.VIAJERO);
-        EntidadRol rolAnfitrion = new EntidadRol(null,NombreRol.ANFITRION);
 
-        servicioRol.crearRol(rolViajero);
-        servicioRol.crearRol(rolAnfitrion);
+        if(!servicioRol.existePorNombreRol(NombreRol.ANFITRION) && !servicioRol.existePorNombreRol(NombreRol.VIAJERO)){
+
+            EntidadRol rolViajero = new EntidadRol(null, NombreRol.VIAJERO);
+            EntidadRol rolAnfitrion = new EntidadRol(null,NombreRol.ANFITRION);
+            servicioRol.crearRol(rolViajero);
+            servicioRol.crearRol(rolAnfitrion);
+        }
+
+
+
 
     }
 }

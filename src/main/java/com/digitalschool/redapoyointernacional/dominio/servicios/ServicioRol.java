@@ -2,6 +2,7 @@ package com.digitalschool.redapoyointernacional.dominio.servicios;
 
 
 import com.digitalschool.redapoyointernacional.datos.modelos.entidades.EntidadRol;
+import com.digitalschool.redapoyointernacional.datos.modelos.enumerados.NombreRol;
 import com.digitalschool.redapoyointernacional.datos.repositorio.RolRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,17 @@ public class ServicioRol {
     @Autowired
     private RolRepositorio rolRepositorio;
 
-    public Optional<EntidadRol> getByNombreRol(String nombreRol){
+    public Optional<EntidadRol> getByNombreRol(NombreRol nombreRol){
 
         return rolRepositorio.findByNombreRol(nombreRol);
     }
 
     public EntidadRol crearRol(EntidadRol rol){
         return rolRepositorio.save(rol);
+    }
+
+    public boolean existePorNombreRol(NombreRol nombreRol){
+        return rolRepositorio.existsByNombreRol(nombreRol);
+
     }
 }
