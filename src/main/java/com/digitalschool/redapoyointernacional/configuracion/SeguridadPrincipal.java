@@ -46,7 +46,7 @@ public class SeguridadPrincipal extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(servicioDetalleUsuario).passwordEncoder(passwordEncoder());
 
     }
-    
+
     @Bean
     public AuthenticationManager authenticationMannagerBean() throws Exception{
         return super.authenticationManagerBean();
